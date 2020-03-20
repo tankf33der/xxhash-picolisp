@@ -5,27 +5,21 @@
    (native "@" "munmap" 'N A L) )
 (de xxh64 (M S)
    (let
-      (R
-         (native
-            "libxxhash.so"
-            "XXH64"
-            'N
-            M
-            S
-            0 )
+      (R (native "libxxhash.so" "XXH64" 'N M S 0)
          P `(** 2 64) )
-      (if (lt0 R) (& (+ R P) (dec P)) R) ) )
+      (if (lt0 R)
+         (& (+ R P) (dec P))
+         R ) ) )
 (let
    (F (car (argv))
       Size (car (info F))
       Map (mmap Size (open F T))
    )
-   #(println 'F F 'Size Size 'Map Map)
-   (println (xxh64 Map Size))
+   (println 'picolisp (xxh64 Map Size))
    (munmap Map Size)
 
-   # XXX
-   (call 'xxh64 F)
+   # xxh64sum
+   (println 'xxh64sum (in (list 'xxh64sum F) (hex (read))))
 )
 
 
