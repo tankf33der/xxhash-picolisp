@@ -7,10 +7,15 @@ $ xbps-install -Syu xxHash xxHash-devel
 
 ArchLinux
 $ pacman -Syu xxhash
+
+Checking
+$ ldconfig -p | grep xxhash
+        libxxhash.so.0 (libc6,x86-64) => /usr/lib/libxxhash.so.0
+        libxxhash.so (libc6,x86-64) => /usr/lib/libxxhash.so
 ```
 
 #### Benchmarking
-xxh64 is modern and fasters on 64bit systems.
+xxh64 is modern and fastets on 64bit systems.
 ```
 $ xxh64sum -b /bin/date
 xxh64sum 0.7.3 (64-bit x86_64 + SSE2 little endian), GCC 9.2.0, by Yann Collet
@@ -27,4 +32,11 @@ XXH128                   :     108832 ->    98845 it/s (10259.1 MB/s)
 XXH128 unaligned         :     108832 ->    90113 it/s ( 9352.8 MB/s)
 XXH128 seeded            :     108832 ->   103598 it/s (10752.5 MB/s)
 XXH128 seeded unaligned  :     108832 ->    94271 it/s ( 9784.5 MB/s)
+```
+
+#### Run
+```
+$ pil xxhash.l /bin/date
+picolisp 12289150671020524345
+xxh64sum 12289150671020524345
 ```
