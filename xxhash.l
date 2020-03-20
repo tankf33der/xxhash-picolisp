@@ -13,14 +13,11 @@
 (let
    (F (car (argv))
       Size (car (info F))
-      Map (mmap Size (open F T))
-   )
+      Map (mmap Size (open F T)) )
    (println 'picolisp (xxh64 Map Size))
    (munmap Map Size)
-
    # xxh64sum
-   (println 'xxh64sum (in (list 'xxh64sum F) (hex (read))))
-)
-
-
+   (println
+      'xxh64sum
+      (in (list 'xxh64sum F) (hex (read))) ) )
 (bye)
