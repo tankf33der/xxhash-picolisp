@@ -4,22 +4,28 @@
 (de munmap (A L)
    (native "@" "munmap" 'N A L) )
 (de xxh64 (M S)
-   (native
-      "libxxhash.so"
-      "XXH64"
-      'N
-      M
-      S
-      0 ) )
-
+   (let
+      (R
+         (native
+            "libxxhash.so"
+            "XXH64"
+            'N
+            M
+            S
+            0 )
+         P `(** 2 64) )
+      (if (lt0 R) (& (+ R P) (dec P)) R) ) )
 (let
-   (F "/bin/date"
+   (F (car (argv))
       Size (car (info F))
       Map (mmap Size (open F T))
    )
-   (println 'F F 'Size Size)
-   (println 'fin (xxh64 Map Size))
+   #(println 'F F 'Size Size 'Map Map)
+   (println (xxh64 Map Size))
    (munmap Map Size)
+
+   # XXX
+   (call 'xxh64 F)
 )
 
 
