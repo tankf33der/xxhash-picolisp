@@ -15,7 +15,7 @@ $ ldconfig -p | grep xxhash
 ```
 
 #### Benchmarking
-xxh64 is modern and fastets on 64bit systems.
+xxh64 is modern and fastest on 64bit systems.
 ```
 $ xxh64sum -b /bin/date
 xxh64sum 0.7.3 (64-bit x86_64 + SSE2 little endian), GCC 9.2.0, by Yann Collet
