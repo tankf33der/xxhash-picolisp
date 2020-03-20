@@ -1,6 +1,6 @@
 xxHash bindings for PicoLisp.
 
-## Install required library
+### Install required library
 ```
 VoidLinux
 $ xbps-install -Syu xxHash xxHash-devel
