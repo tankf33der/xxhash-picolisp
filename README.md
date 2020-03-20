@@ -5,10 +5,10 @@ xxHash bindings for PicoLisp.
 VoidLinux
 $ xbps-install -Syu xxHash xxHash-devel
 
-ArchLinux
+or ArchLinux
 $ pacman -Syu xxhash
 
-Checking
+checking
 $ ldconfig -p | grep xxhash
         libxxhash.so.0 (libc6,x86-64) => /usr/lib/libxxhash.so.0
         libxxhash.so (libc6,x86-64) => /usr/lib/libxxhash.so
